@@ -2,16 +2,15 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('match_results', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
       matchId: {
         allowNull: false,
+        primaryKey: true,
         type: Sequelize.INTEGER,
-        field: 'match_id'
+        field: 'match_id',
+        references: {
+          model: 'matches',
+          key: 'id'
+        },
       },
       secondTeamScore: {
         allowNull: false,

@@ -11,17 +11,29 @@ module.exports = {
       matchId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        field: 'match_id'
+        field: 'match_id',
+        references: {
+          model: 'matches',
+          key: 'id'
+        },
       },
       eventId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        field: 'event_id'
+        field: 'event_id',
+        references: {
+          model: 'events',
+          key: 'id'
+        },
       },
       eventPlayerId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        field: 'event_player_id'
+        field: 'event_player_id',
+        references: {
+          model: 'players',
+          key: 'id'
+        },
       },
       hasAssist: {
         type: Sequelize.BOOLEAN,
@@ -29,7 +41,11 @@ module.exports = {
       },
       assistPlayerId: {
         type: Sequelize.INTEGER,
-        field: 'assist_player_id'
+        field: 'assist_player_id',
+        references: {
+          model: 'players',
+          key: 'id'
+        },
       },
       game: {
         allowNull: false,
