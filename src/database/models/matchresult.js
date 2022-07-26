@@ -1,6 +1,9 @@
 const createMatchResultModel = (sequelize, DataTypes) => {
   const MatchResult = sequelize.define('MatchResult', {
-    matchId: DataTypes.INTEGER,
+    matchId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true
+    },
     secondTeamScore: DataTypes.INTEGER,
     secondOppScore: DataTypes.INTEGER,
     secondResult: DataTypes.INTEGER,
