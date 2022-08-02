@@ -7,6 +7,10 @@ const createPlayerModel = (sequelize, DataTypes) => {
     underscored: true,
   });
 
+  Player.associate = (models) => {
+    Player.belongsTo(models.Team, { foreignKey: 'teamId', as: 'team' });
+  };
+
   return Player;
 };
 

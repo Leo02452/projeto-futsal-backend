@@ -19,6 +19,10 @@ const createMatchResultModel = (sequelize, DataTypes) => {
     underscored: true
   });
 
+  MatchResult.associate = (models) => {
+    MatchResult.belongsTo(models.Match, { foreignKey: 'matchId', as: 'match' });
+  };
+
   return MatchResult;
 };
 

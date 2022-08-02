@@ -8,6 +8,10 @@ const createUserModel = (sequelize, DataTypes) => {
     underscored: true,
   });
 
+  User.associate = (models) => {
+    User.hasOne(models.Team, { foreignKey: 'userId', as: 'team' });
+  };
+
   return User;
 };
 
