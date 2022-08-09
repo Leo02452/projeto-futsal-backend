@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server",
-    "dev": "nodemon src/server"
-  },
+    "dev": "nodemon src/server",
+    "reset-db": "sequelize-cli db:drop && sequelize-cli db:create && sequelize-cli db:migrate && db:seed:all",
+    "drop-db": "sequelize-cli db:drop"  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Leo02452/projeto-futsal-backend.git"
